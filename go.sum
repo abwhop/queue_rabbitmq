@@ -1,0 +1,4 @@
+github.com/AsidStorm/go-amqp-reconnect/rabbitmq v0.0.0-20210919084342-5aec9a9708ef h1:ScBaASEjkIl/lati4rzoNt30rpADTxzvaIOACjE+EX4=
+github.com/AsidStorm/go-amqp-reconnect/rabbitmq v0.0.0-20210919084342-5aec9a9708ef/go.mod h1:oHFCm2ug3n7K+2sMCOxCBtn6gQrExEuZ11M9gHEfPYg=
+github.com/streadway/amqp v1.0.0 h1:kuuDrUJFZL1QYL9hUNuCxNObNzB0bV/ZG5jV3RWAQgo=
+github.com/streadway/amqp v1.0.0/go.mod h1:AZpEONHx3DKn8O/DFsRAY58/XVQiIPMTMB1SddzLXVw=
