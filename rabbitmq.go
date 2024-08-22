@@ -48,11 +48,6 @@ func newQueue(url string) (*Queue, error) {
 	if err != nil {
 		return nil, fmt.Errorf(`error set qos %w`, err)
 	}
-
-	_, err = consumeCh.QueueDeclare("test-auto-delete", false, true, false, true, nil)
-	if err != nil {
-		return nil, fmt.Errorf(`error get Queue %w`, err)
-	}
 	return &Queue{channel: consumeCh}, nil
 }
 
@@ -70,4 +65,16 @@ func (q *Queue) GetMessage(queueName string, action func(data []byte, contentTyp
 			}
 		}
 	}()
+}
+
+func (q *Queue) CreateQueue(queueName string) error {
+	_, err := q.channel.QueueDeclare(queueName, false, true, false, true, nil)
+	return err
+}
+
+func (q *Queue) SendMessage(queueName string, message []byte, contentType string) error {
+	return q.channel.Publish("", queueName, false, false, rabbitmq.Publishing{
+		ContentType: contentType,
+		Body:        message,
+	})
 }
