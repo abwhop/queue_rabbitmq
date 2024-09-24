@@ -67,8 +67,8 @@ func (q *Queue) GetMessage(queueName string, action func(data []byte, contentTyp
 	}()
 }
 
-func (q *Queue) CreateQueue(queueName string) error {
-	_, err := q.channel.QueueDeclare(queueName, false, true, false, true, nil)
+func (q *Queue) CreateQueue(queueName string, durable bool, autoDelete bool) error {
+	_, err := q.channel.QueueDeclare(queueName, durable, autoDelete, false, true, nil)
 	return err
 }
 
